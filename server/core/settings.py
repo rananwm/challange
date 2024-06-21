@@ -57,6 +57,7 @@ INSTALLED_APPS = [
     # Modules
     'corsheaders',
     'rest_framework',
+    'drf_yasg',
     'rest_framework_simplejwt.token_blacklist',
 
     # Apps
@@ -218,6 +219,15 @@ REST_FRAMEWORK = {
     "DEFAULT_PERMISSION_CLASSES": [
         'rest_framework.permissions.AllowAny',
     ]
+}
+SWAGGER_SETTINGS = {
+   'SECURITY_DEFINITIONS': {
+        'Bearer': {
+            'type': 'apiKey',
+            'name': 'Authorization',
+            'in': 'header'
+        }
+    }
 }
 
 AUTH_USER_MODEL = 'user.User'
